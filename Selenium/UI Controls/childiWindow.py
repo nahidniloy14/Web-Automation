@@ -8,14 +8,16 @@ driver = webdriver.Chrome()
 driver.get("https://the-internet.herokuapp.com/windows")
 driver.find_element(By.LINK_TEXT,"Click Here").click()
 
-#initialy it will print the text of parent window
+#it will print the text of parent window
 print(driver.find_element(By.TAG_NAME,"h3").text) #use it only if it is unique
-
+#opening a new window
 childwindow=driver.window_handles[1] #lsit of windows openened by the selenium # [0] parent id [1] child id
 driver.switch_to.window(childwindow)
 print(driver.find_element(By.TAG_NAME,"h3").text)
+#new window
+driver.close() #will close the child window
 
 #if we want to go back to parent window
-#parentwindow=driver._switch_to.window(driver.window_handles[0])
-#driver.switch_to.window(parentwindow)
-#print(driver.find_element(By.TAG_NAME,"h3").text)
+parentwindow=driver._switch_to.window(driver.window_handles[0])
+driver.switch_to.window(parentwindow)
+print(driver.find_element(By.TAG_NAME,"h3").text)

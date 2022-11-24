@@ -21,3 +21,4 @@ driver.find_element(By.XPATH,"//input[@type='submit']").click()
 #print(driver.find_element(By.CLASS_NAME,"alert-success").text)#use only one class name
 message=driver.find_element(By.CSS_SELECTOR,".alert-success").text #use only one class name
 assert "success" in message #is the word "success" present in the sentence
+assert not "thank you" in message

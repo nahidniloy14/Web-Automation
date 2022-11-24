@@ -13,3 +13,5 @@ time.sleep(5)
 for checkbox in checkboxes:
         if checkbox.get_attribute("value") == "option2" :
                 checkbox.click()
+                checkbox.is_selected()#this method returns true or false
+                break
