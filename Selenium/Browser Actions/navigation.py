@@ -1,7 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
-driver=webdriver.Chrome("C:\Driver\chromedriver_win32\chromedriver.exe")#link chrome
+from selenium.webdriver.chrome.service import Service
+
+serviceObject = Service("C:\Driver\chromedriver107.exe")
+#make sure you have downloaded the existing chrome version in your pc
+driver = webdriver.Chrome(service=serviceObject)
+
+
 #forward navigation
 driver.get("https://www.wikipedia.org/")#open this url in chrome
 print(driver.title)#prints title of the url
