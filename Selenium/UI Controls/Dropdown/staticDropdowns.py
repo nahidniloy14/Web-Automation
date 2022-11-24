@@ -1,10 +1,14 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium import webdriver
-from selenium.webdriver.support.select import Select
-from selenium.webdriver.support.wait import WebDriverWait
 import time
-driver = webdriver.Chrome()
+
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
+
+serviceObject = Service("C:\Driver\chromedriver107.exe")
+
+driver = webdriver.Chrome(service=serviceObject)
+
 driver.get("https://rahulshettyacademy.com/angularpractice/")
 #static options are fixed like(male,female)
 
@@ -15,3 +19,4 @@ time.sleep(5)
 dropdown.select_by_visible_text("Female")
 #time.sleep(5)
 #dropdown.select_by_index(0)#male
+#dropdown.select_by_value("Female)#if present

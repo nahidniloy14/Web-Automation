@@ -8,7 +8,7 @@ driver.get("https://rahulshettyacademy.com/dropdownsPractise/")
 
 driver.find_element(By.ID,"autosuggest").send_keys("ind")
 time.sleep(2)
-countries=driver.find_elements(By.XPATH,"//li[@class='ui-menu-item']/a ")
+countries=driver.find_elements(By.XPATH,"//li[@class='ui-menu-item']/a ")#should be plural elements
 print(len(countries))
 time.sleep(2)
 for country in countries:
@@ -16,7 +16,9 @@ for country in countries:
         country.click()
         break
 print(driver.find_element(By.ID,"autosuggest").text)
+driver.find_element(By.ID,"autosuggest") .get_attribute('value') #india
 assert driver.find_element(By.ID,"autosuggest") .get_attribute('value') == "India"
+
 #get_attribute('value') will go the location and print the vlaue typed in the place
 #assert driver.find_element(By.ID,"autosuggest") .get_attribute('value') #actualvalue
 #== "India" #expected value
