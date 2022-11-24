@@ -15,5 +15,15 @@ driver.get("https://rahulshettyacademy.com/angularpractice/")
 
 driver.find_element(By.XPATH,"//input[@value='Submit']").click()
 time.sleep(5)
-#driver.find_element(By.XPATH,"//div[@class='container']/form/div[1]/input").send_keys("Nahid Hassan Niloy")
+
+#------Multiple X Path Matching---------
+# (//input[@type='text'])[3]
+# simply put the Xpath in the bracket and initialize the row number
+# by default it starts from top left
+driver.find_element(By.XPATH,"(//input[@type='text'])[3]")
+
+
+#X PATH Using Text
+#//p[text()='Don't have an account?']
+driver.find_element(By.XPATH,"//p[text()='Don't have an account?']")
 
