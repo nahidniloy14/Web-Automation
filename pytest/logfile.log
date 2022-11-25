@@ -1,0 +1,4 @@
+2022-11-25 16:35:35,802 :INFO :test_logging :Information:  
+2022-11-25 16:35:35,804 :WARNING :test_logging :Warnings:  
+2022-11-25 16:35:35,805 :ERROR :test_logging :a major error has occured 
+2022-11-25 16:35:35,807 :CRITICAL :test_logging :Critical Issue 
