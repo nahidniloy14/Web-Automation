@@ -1,25 +1,7 @@
 import pytest
-driver=None #for ss properties
-@pytest.fixture()
-#@pytest.fixture(scope="class")  # will be executed in the class level
-def setup():
-    global driver  # should intialize this in the main fixture to take ss
-    print("I am header")
-    yield  # will wait until the header gets printed and then after it will to start working with the footer
-    print("I am footer")
 
-
-#used in dataDrivenFixture.py
-def dataLoad():
-    print("User Created")
-    return ("name", "age", "gmail")
-
-#used in multiple dataset.py
-@pytest.fixture(params=["chrome","firefox","brave"])
-#@pytest.fixture(params=[("chrome","1200"),("firefox","None","1300"),"brave"])
-def browser(request):
-    return request.param
-
+driver=None
+#golbal driver #intialize this in the main fixture
 @pytest.mark.hookwrapper
 def pytest_runtest_makereport(item):
     """
@@ -44,7 +26,4 @@ def pytest_runtest_makereport(item):
 
 
 def _capture_screenshot(name):
-    driver.get_screenshot_as_file(name)
-
-
-# conftest will be available to all fixture  related Tests
+        driver.get_screenshot_as_file(name)

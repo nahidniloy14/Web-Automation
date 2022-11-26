@@ -1,8 +1,11 @@
-#if we declare our fixture that fixture will be present to all testcases present in that particular fixture
+# if we declare our fixture that fixture will be present to all testcases present in that particular fixture
 
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+
+driver = None  # should intialize this to take ss
+
 
 @pytest.fixture(scope="class")
 def setup(request):
@@ -11,6 +14,10 @@ def setup(request):
     driver.get("https://www.saucedemo.com/")
     driver.implicitly_wait(10)
     driver.maximize_window()
-    request.cls.driver=driver#assinging local driver of this fixture to the class driver
+    request.cls.driver = driver  # assinging local driver of this fixture to the class driver
     yield
     driver.close()
+
+    # -----------Take screenshot out of html report----------
+
+

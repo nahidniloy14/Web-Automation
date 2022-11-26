@@ -1,3 +1,6 @@
+import inspect
+import logging
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -21,3 +24,14 @@ class BaseClass:
     # scroll
     def scroll(self, x, y):
         self.driver.execute_script("window.scrollTo(x,y)")
+    # logging
+    def getlogger(self):
+        loggerName = inspect.stack()[1][3]
+        logger = logging.getLogger(__name__)  # method to log everything#__name__ prints name
+        fileHandler = logging.FileHandler('../logfile.log')
+        formatter = logging.Formatter("%(asctime)s :%(levelname)s :%(name)s :%(message)s ")
+        fileHandler.setFormatter(formatter)
+        logger.addHandler(fileHandler)  # accept filehandler object #logger format and file
+        logger.setLevel(logging.DEBUG)
+        return logger
+
