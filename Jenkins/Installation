@@ -1,0 +1,17 @@
+----------Installation---------------
+Download Jenkins:
+https://get.jenkins.io/war-stable/
+
+Run on local machine:
+java -jar jenkins.war -httpPort=9090 --enable-future-java
+
+From browser start the Jenkins
+http://localhost:9090/
+
+---------Setup-----------
+Create Jobs>>
+Add a freestyle project>>
+From general >> advanced >> Use Custom workspace >> Give path of the project
+Go to Bottom:
+Build Steps >> execute shell >> write commands in shell
+

@@ -1,9 +1,55 @@
+@Jenkins Documentation
+-----Title----
+Body
+-----------------Finishline
+#Output
+
+
+------------------ Build with environment------------
+------------------Run test cases importing from your project-------------
 cd pytest
-py.test syntax.test --html=C:\Users\lm\PycharmProjects\UI-Automation/reports/reports.html
-py.test syntax.test --html=$WORKSPACE/Jenkins/Jenkinsreports/reports.html
-General>>Choice Parameter
-Name>>firstname
+py.test syntax_test --html=C:\Users\lm\PycharmProjects\UI-Automation/reports/reports.html
+
+------------------Run providing the path using workspace------------------
+py.test syntax_test --html=$WORKSPACE/Jenkins/Jenkinsreports/reports.html
+
+# this will provide a report.html file in the given location
+
+-----------------------------------------------------------------------
+
+
+-----------------------Build with Parameter----------------------------------
+General >> This project is parameterised >> Add Parameter >> Choice Parameter
+
+Name>>firstName
 Choices>>
 niloy
 nahid
 hassan
+
+Save the project after that you will see build with parameter
+
+As we have to give the knowledge to jenkins also about our parameter we shuld initialize the parameter also
+
+py.test syntax_test "%firstName%" --html=$WORKSPACE/Jenkins/Jenkinsreports/reports.html
+
+Run the project using build with parameters
+#will show the desired output taking the parameter as base input
+---------------------------------------------------------------------------------------------
+
+----------------------Publish Junit Test Build Report---------
+General >> Post Build Actions >> Publish JUnit Test Build Report
+Now go to EXecute Shell:
+cd Tests
+py.test --test_locator %firstName% --html=$WORKSPACE/Jenkins/JenkinsReports/reports.html -v --junitxml="result.xml"
+
+Go to Post-build Actions>>Test report XML's>> Tests/result.xml
+Save >> Build
+
+#latest test result
+#result.xml file will be created in your
+
+--------------------------------------------------------------------------
+After running 5 or 6 data it will also show us graphs
+All the reports can be found in Workspace with logs
+
