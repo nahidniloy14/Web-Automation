@@ -1,3 +1,9 @@
 cd pytest
 py.test syntax.test --html=C:\Users\lm\PycharmProjects\UI-Automation/reports/reports.html
 py.test syntax.test --html=$WORKSPACE/Jenkins/Jenkinsreports/reports.html
+General>>Choice Parameter
+Name>>firstname
+Choices>>
+niloy
+nahid
+hassan
