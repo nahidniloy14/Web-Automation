@@ -1,9 +1,13 @@
+import pytest
+
 from PageObjectMechanism.PageObjects.addToCart import page2
 from PageObjectMechanism.PageObjects.complete import page6
 from PageObjectMechanism.PageObjects.login import page1
 from PageObjectMechanism.PageObjects.overview import page5
 from PageObjectMechanism.PageObjects.yourCart import page3
 from PageObjectMechanism.PageObjects.yourInfo import page4
+from PageObjectMechanism.TestData import homePageData
+from PageObjectMechanism.TestData.homePageData import HomePageData
 from PageObjectMechanism.Utilities.baseClass import BaseClass
 from PageObjectMechanism.Utilities.dataSet import getData
 #@pytest.mark.usefixtures("setup") #inheited from BaseClass
@@ -60,6 +64,11 @@ class Test1(BaseClass,getData):
         assert "THANK YOU" in message2
         self.driver.refresh() #this is a way to fill up both the data sets
         self.driver.quit()
+
+    #get value from excel
+    @pytest.fixture(params=HomePageData.getTestData("data_dictonary"))
+    def getData(self, request):
+        return request.param
 
 
 

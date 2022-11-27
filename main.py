@@ -1,16 +1,9 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+import openpyxl
+book=openpyxl.load_workbook("C:\\Users\\lm\\OneDrive - American International University-Bangladesh\\Documents\\RoadToSqa.xlsx")#file path
+sheet=book.active #active excel sheet
+cell=sheet.cell(row=15,column=2)
+print(cell.value)
+sheet.cell(row=1,column=5).value="Experiment"
+print(sheet.cell(row=1,column=5).value)#value will be added to the sheet
+print(sheet.max_row)
+print(sheet.max_column)
