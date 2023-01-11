@@ -18,10 +18,11 @@ import time
 #Xpath-//tagname[@attribute='value']
 #Xpath(Regular)-//*[contains(@atrribute,'value')]
 #Xpath(tagname)- //tagname[text()='value']
+#Xpath(text)-//tagname[text()='PROCCED TO CHECKOUT']
 
 #CSS SELECTOR
 #CSS-tagname[attribute='value']
-#CSS(Regular)-tagname[attribute*='value']
+#CSS(RegEx)-tagname[attribute*='value']
 #tagid tagname#valueofID
 #tagclass tagname.valueofclass
 
